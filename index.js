@@ -17,12 +17,12 @@ if (!fs.existsSync('ok.js')) {
 }
 
 app.get('/proxies/:anon/:type', async (req, res) => {
-  if (req.params.anon != ('elite' || 'anonymous' || 'transparent' || 'all')) {
+  if (req.params.anon != 'elite' && req.params.anon != 'anonymous' && req.params.anon != 'transparent' && req.params.anon != 'all') {
     return res.status(401).json({
       message: 'Anonimity must be either elite, anonymous, transparent, or all.'
     })
   }
-  if (req.params.type != ('http' || 'socks4' || 'socks5' || 'all')) {
+  if (req.params.type != 'http' && req.params.type != 'socks4' && req.params.type != 'socks5' && req.params.type != 'all') {
     return res.status(401).json({
       message: 'Type must be either http, socks4, socks5, or all.'
     })
